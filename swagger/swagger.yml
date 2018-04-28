@@ -20,7 +20,7 @@ paths:
         "200":
           description: ""
           schema:
-            $ref: '#/definitions/models.Object'
+            $ref: '#/definitions/.Object'
         "403":
           description: :objectId is empty
     post:
@@ -34,7 +34,7 @@ paths:
         description: The object content
         required: true
         schema:
-          $ref: '#/definitions/models.Object'
+          $ref: '#/definitions/.Object'
       responses:
         "200":
           description: '{string} models.Object.Id'
@@ -56,7 +56,7 @@ paths:
         "200":
           description: ""
           schema:
-            $ref: '#/definitions/models.Object'
+            $ref: '#/definitions/.Object'
         "403":
           description: :objectId is empty
     put:
@@ -75,12 +75,12 @@ paths:
         description: The body
         required: true
         schema:
-          $ref: '#/definitions/models.Object'
+          $ref: '#/definitions/.Object'
       responses:
         "200":
           description: ""
           schema:
-            $ref: '#/definitions/models.Object'
+            $ref: '#/definitions/.Object'
         "403":
           description: :objectId is empty
     delete:
@@ -109,7 +109,7 @@ paths:
         "200":
           description: ""
           schema:
-            $ref: '#/definitions/models.User'
+            $ref: '#/definitions/.User'
     post:
       tags:
       - user
@@ -121,7 +121,7 @@ paths:
         description: body for user content
         required: true
         schema:
-          $ref: '#/definitions/models.User'
+          $ref: '#/definitions/.User'
       responses:
         "200":
           description: '{int} models.User.Id'
@@ -143,7 +143,7 @@ paths:
         "200":
           description: ""
           schema:
-            $ref: '#/definitions/models.User'
+            $ref: '#/definitions/.User'
         "403":
           description: :uid is empty
     put:
@@ -162,12 +162,12 @@ paths:
         description: body for user content
         required: true
         schema:
-          $ref: '#/definitions/models.User'
+          $ref: '#/definitions/.User'
       responses:
         "200":
           description: ""
           schema:
-            $ref: '#/definitions/models.User'
+            $ref: '#/definitions/.User'
         "403":
           description: :uid is not int
     delete:
@@ -218,42 +218,10 @@ paths:
         "200":
           description: '{string} logout success'
 definitions:
-  models.Object:
-    title: Object
+  .Object:
     type: object
-    properties:
-      ObjectId:
-        type: string
-      PlayerName:
-        type: string
-      Score:
-        type: integer
-        format: int64
-  models.Profile:
-    title: Profile
+  .User:
     type: object
-    properties:
-      Address:
-        type: string
-      Age:
-        type: integer
-        format: int64
-      Email:
-        type: string
-      Gender:
-        type: string
-  models.User:
-    title: User
-    type: object
-    properties:
-      Id:
-        type: string
-      Password:
-        type: string
-      Profile:
-        $ref: '#/definitions/models.Profile'
-      Username:
-        type: string
 tags:
 - name: object
   description: |
